@@ -1,42 +1,202 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Import Font Awesome for icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.quote-box {
+  background: white;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
   text-align: center;
+  transition: all 0.3s ease;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.quote-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-@keyframes logo-spin {
+.quote-content {
+  margin-bottom: 30px;
+}
+
+.quote-text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.quote-text .fa-quote-left {
+  color: #667eea;
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.quote-author {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 400;
+  text-align: right;
+  transition: opacity 0.3s ease;
+}
+
+.quote-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.tweet-quote {
+  background: #1da1f2;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 50px;
+}
+
+.tweet-icon {
+  font-size: 1.5rem;
+  margin-right: 8px;
+}
+
+
+.new-quote-button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Raleway', sans-serif;
+}
+
+.new-quote-button:hover:not(:disabled) {
+  background: #5a67d8;
+  transform: scale(1.05);
+}
+
+.new-quote-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.new-quote-button:active {
+  transform: scale(0.95);
+}
+
+.footer {
+  margin-top: 30px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.05em; /* Adds nice tracking/letter spacing */
+}
+
+/* Fade animations */
+.fade-in {
+  opacity: 1;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+  animation: fadeOut 0.15s ease-out;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
   }
 }
 
-.card {
-  padding: 2em;
+/* Responsive design */
+@media (max-width: 768px) {
+  .quote-box {
+    padding: 30px 20px;
+    margin: 10px;
+  }
+  
+  .quote-text {
+    font-size: 1.3rem;
+  }
+  
+  .quote-author {
+    font-size: 1rem;
+  }
+  
+  .quote-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .new-quote-button {
+    width: 100%;
+    padding: 15px;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@media (max-width: 480px) {
+  .quote-text {
+    font-size: 1.1rem;
+  }
+  
+  .quote-box {
+    padding: 25px 15px;
+  }
 }
